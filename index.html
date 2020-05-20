@@ -1,144 +1,300 @@
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html>
+
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="description" content="HTTrack is an easy-to-use website mirror utility. It allows you to download a World Wide website from the Internet to a local directory,building recursively all structures, getting html, images, and other files from the server to your computer. Links are rebuiltrelatively so that you can freely browse to the local site (works with any browser). You can mirror several sites together so that you can jump from one toanother. You can, also, update an existing mirror site, or resume an interrupted download. The robot is fully configurable, with an integrated help" />
-	<meta name="keywords" content="httrack, HTTRACK, HTTrack, winhttrack, WINHTTRACK, WinHTTrack, offline browser, web mirror utility, aspirateur web, surf offline, web capture, www mirror utility, browse offline, local  site builder, website mirroring, aspirateur www, internet grabber, capture de site web, internet tool, hors connexion, unix, dos, windows 95, windows 98, solaris, ibm580, AIX 4.0, HTS, HTGet, web aspirator, web aspirateur, libre, GPL, GNU, free software" />
-	<title>Local index - HTTrack Website Copier</title>
-  <!-- Mirror and index made by HTTrack Website Copier/3.49-1 [XR&CO'2014] -->
-	<style type="text/css">
-	<!--
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+ 
+<title>TAREA II</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+ <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
 
-body {
-	margin: 0;  padding: 0;  margin-bottom: 15px;  margin-top: 8px;
-	background: #77b;
+<script>
+
+  
+var personas=[];
+function Persona(n,a,c,e,ce,f,z){
+this.nombre=n;
+this.apellido=a;
+this.cell=c;
+this.email=e;
+this.cedula=ce;
+this.fecha=f;
+this.zodiaco=z;
+
 }
-body, td {
-	font: 14px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-	}
 
-#subTitle {
-	background: #000;  color: #fff;  padding: 4px;  font-weight: bold; 
-	}
+function agregarEmpleado(){
+n=getid('txtnombre').value;
+a=getid('txtapellido').value;
+c=getid('txtcell').value;
+e=getid('txtemail').value;
+ce=getid('txtcedula').value;
+d=getid('txtdia').value;
+dia=parseFloat(d);
+m=getid('txtmes').value;
+mes=parseFloat(m);
+y=getid('txtyear').value;
+year=parseFloat(y)
 
-#siteNavigation a, #siteNavigation .current {
-	font-weight: bold;  color: #448;
-	}
-#siteNavigation a:link    { text-decoration: none; }
-#siteNavigation a:visited { text-decoration: none; }
+///////zodiaco//////////
+var z;
+ if((mes == 1 && dia <= 20) || (mes == 12 && dia >=22)) {
+    z="Capricormio";
+  } else if ((mes == 1 && dia >= 21) || (mes == 2 && dia <= 18)) {
+    z="Acuario";
+  } else if((mes == 2 && dia >= 19) || (mes == 3 && dia <= 20)) {
+    z="Picis";
+  } else if((mes == 3 && dia >= 21) || (mes == 4 && dia <= 20)) {
+    z="Aries";
+  } else if((mes == 4 && dia >= 21) || (mes == 5 && dia <= 20)) {
+    z="Tauro";
+  } else if((mes == 5 && dia >= 21) || (mes == 6 && dia <= 20)) {
+    z="Geminis";
+  } else if((mes == 6 && dia >= 22) || (mes == 7 && dia <= 22)) {
+    z="Cancer";
+  } else if((mes == 7 && dia >= 23) || (mes == 8 && dia <= 23)) {
+    z="Leo";
+  } else if((mes == 8 && dia >= 24) || (mes == 9 && dia <= 23)) {
+    z="Virgo";
+  } else if((mes == 9 && dia >= 24) || (mes == 10 && dia <= 23)) {
+        z="Libra";
+  } else if((mes == 10 && dia >= 24) || (mes == 11 && dia <= 22)) {
+    z="Escorpio";
+  } else if((mes == 11 && dia >= 23) || (mes == 12 && dia <= 21)) {
+    z="Sagitario";
+  }
+///////zodiaco//////////
 
-#siteNavigation .current { background-color: #ccd; }
-
-#siteNavigation a:hover   { text-decoration: none;  background-color: #fff;  color: #000; }
-#siteNavigation a:active  { text-decoration: none;  background-color: #ccc; }
-
-
-a:link    { text-decoration: underline;  color: #00f; }
-a:visited { text-decoration: underline;  color: #000; }
-a:hover   { text-decoration: underline;  color: #c00; }
-a:active  { text-decoration: underline; }
-
-#pageContent {
-	clear: both;
-	border-bottom: 6px solid #000;
-	padding: 10px;  padding-top: 20px;
-	line-height: 1.65em;
-	background-image: url(backblue.gif);
-	background-repeat: no-repeat;
-	background-position: top right;
-	}
-
-#pageContent, #siteNavigation {
-	background-color: #ccd;
-	}
-
-
-.imgLeft  { float: left;   margin-right: 10px;  margin-bottom: 10px; }
-.imgRight { float: right;  margin-left: 10px;   margin-bottom: 10px; }
-
-hr { height: 1px;  color: #000;  background-color: #000;  margin-bottom: 15px; }
-
-h1 { margin: 0;  font-weight: bold;  font-size: 2em; }
-h2 { margin: 0;  font-weight: bold;  font-size: 1.6em; }
-h3 { margin: 0;  font-weight: bold;  font-size: 1.3em; }
-h4 { margin: 0;  font-weight: bold;  font-size: 1.18em; }
-
-.blak { background-color: #000; }
-.hide { display: none; }
-.tableWidth { min-width: 400px; }
-
-.tblRegular       { border-collapse: collapse; }
-.tblRegular td    { padding: 6px;  background-image: url(fade.gif);  border: 2px solid #99c; }
-.tblHeaderColor, .tblHeaderColor td { background: #99c; }
-.tblNoBorder td   { border: 0; }
+var fecha= dia+"/"+mes+"/"+year;
 
 
-// -->
-</style>
+ var p= new Persona(n,a,c,e,ce,fecha,z);
+ personas.push(p);
+ mostrarEmpleados();
+ alert('persona agregada');
+ limpiarCampos();
+
+var datos=JSON.stringify(personas);
+localStorage.setItem('datoOchoPlus',datos);
+
+
+}
+
+function dce(e){
+  return document.createElement(e);
+}
+
+function getid(id){
+ return document.getElementById(id);
+}
+
+
+
+
+
+function limpiarCampos(){
+getid('txtnombre').value='';
+getid('txtapellido').value='';
+getid('txtcell').value='';
+getid('txtemail').value='';
+getid('txtcedula').value='';
+getid('txtdia').value='';
+getid('txtmes').value='';
+getid('txtyear').value='';
+
+}
+
+function mostrarEmpleados(){
+  destino=document.getElementById('tbDatos');
+  destino.innerHTML='';
+ for (x=0; x<personas.length; x++) {
+    mpleado=personas[x]
+
+    tr = dce('tr');
+
+    td = dce('td');
+    td.innerHTML=mpleado.nombre;
+    tr.appendChild(td);
+    
+    td = dce('td');
+    td.innerHTML=mpleado.apellido;
+    tr.appendChild(td);
+
+    td = dce('td');
+    td.innerHTML=mpleado.cell;
+    tr.appendChild(td);
+    
+    td = dce('td');
+    td.innerHTML=mpleado.email;
+    tr.appendChild(td);
+
+    td = dce('td');
+    td.innerHTML=mpleado.cedula;
+    tr.appendChild(td);
+    
+    td = dce('td');
+    td.innerHTML=mpleado.fecha;
+    tr.appendChild(td);
+
+    td = dce('td');
+    td.innerHTML=mpleado.zodiaco;
+    tr.appendChild(td);
+
+  
+  
+    td = dce('td');
+    td.innerHTML=`<a onClick="eliminar(this)" class="fas fa-trash-alt fa-lg" style="color:#E35465;"></a>
+     <br>
+     <br>
+     <a onClick="editar(this)" class="fas fa-edit fa-lg" style="color:#38C4D7;"></a>`;
+    tr.appendChild(td);
+  
+   
+    destino.appendChild(tr);
+
+}}
+
+function editar(td) {
+  selectedRow = td.parentElement.parentElement;
+  document.getElementById("txtnombre").value = selectedRow.cells[0].innerHTML;
+  document.getElementById("txtapellido").value = selectedRow.cells[1].innerHTML;
+  document.getElementById("txtcell").value = selectedRow.cells[2].innerHTML;
+  document.getElementById("txtemail").value = selectedRow.cells[3].innerHTML;
+  document.getElementById("txtcedula").value = selectedRow.cells[4].innerHTML;
+}
+
+
+function eliminar(td){
+
+  alert('funciona'+td);
+}
+
+
+
+
+function cargarDatos(){
+var dato=localStorage.getItem('datoOchoPlus');
+if(dato!=null){
+  personas=JSON.parse(dato);
+  mostrarEmpleados();
+}}
+
+
+function borrarall(){
+window.localStorage.clear();
+mostrarEmpleados();
+}
+
+
+
+
+
+
+</script>
+
+
+
+
 
 </head>
+<body onload="cargarDatos();"> 
 
-<table width="76%" border="0" align="center" cellspacing="0" cellpadding="3" class="tableWidth">
-	<tr>
-	<td id="subTitle">HTTrack Website Copier - Open Source offline browser</td>
-	</tr>
-</table>
-<table width="76%" border="0" align="center" cellspacing="0" cellpadding="0" class="tableWidth">
-<tr class="blak">
-<td>
-	<table width="100%" border="0" align="center" cellspacing="1" cellpadding="0">
-	<tr>
-	<td colspan="6"> 
-		<table width="100%" border="0" align="center" cellspacing="0" cellpadding="10">
-		<tr> 
-		<td id="pageContent"> 
-<!-- ==================== End prologue ==================== -->
+<div class="container text-center">
 
-	<meta name="generator" content="HTTrack Website Copier/3.x">
-	<TITLE>Local index - HTTrack</TITLE>
-</HEAD>
-<BODY>
-<H1 ALIGN=Center>Index of locally available sites:</H1>
-	<TABLE BORDER="0" WIDTH="100%" CELLSPACING="1" CELLPADDING="0">
-		<TR>
-			<TD BACKGROUND="fade.gif">
-				&middot;
-					<A HREF="www.rafaelpadillafp.com/index.html">
-						Inicio | Rafael Padilla
-					</A>		
-			</TD>
-		</TR>
-	</TABLE>
-	<BR>
-	<BR>
-	<BR>
-  	<H6 ALIGN="RIGHT">
-	<I>Mirror and index made by HTTrack Website Copier [XR&amp;CO'2008]</I>
-	</H6>
-	<!-- Mirror and index made by HTTrack Website Copier/3.49-1 [XR&CO'2014] -->
-	<!-- Thanks for using HTTrack Website Copier! -->
-	<meta HTTP-EQUIV="Refresh" CONTENT="0; URL=www.rafaelpadillafp.com/index.html">
+	<h1 class="bg-ligth py-4  color"><a href="index.html"></a>&ensp;WEB CRUD</h1>
+</div>
 
 
-<!-- ==================== Start epilogue ==================== -->
-		</td>
-		</tr>
-		</table>
-	</td>
-	</tr>
-	</table>
-</td>
-</tr>
-</table>
+<!-- /////////////entradas//////////////// -->
 
-<table width="76%" border="0" align="center" valign="bottom" cellspacing="0" cellpadding="0">
-	<tr>
-	<td id="footer"><small>&copy; 2008 Xavier Roche & other contributors - Web Design: Leto Kauler.</small></td>
-	</tr>
-</table>
+<div class="text-center">
+<h1>Formulario de Registro</h1>
+</div>
+<br>
+<div class="d-flex justify-content-center ">
+	<form class="w-50">
+ <input type="text" name="nombre" id="txtnombre" class="form-control" placeholder="Nombre" autocomplete="off">
+ <input type="text" name="apellido" id="txtapellido" class="form-control" placeholder="Apellido" autocomplete="off">
+ <input type="text" name="cell" id="txtcell"  class="form-control" placeholder="Telefono" autocomplete="off">
+ <input type="text" name="email" id="txtemail" class="form-control" placeholder="Email" autocomplete="off">
+ <input type="text" name="cedula" id="txtcedula" class="form-control" placeholder="Cedula" autocomplete="off">
+ 
+ <div class="row">
+  <div class="col">
+    
+      <input type="text" id="txtdia" name="dia" class="form-control m-0" placeholder="Dia" autocomplete="off">
+
+  </div>
+  <div class="col">
+    
+      <input type="text" id="txtmes" name="mes" class="form-control m-0" placeholder="Mes" autocomplete="off">
+  </div>
+
+  <div class="col">
+    
+      <input type="text" id="txtyear" name="year" class="form-control m-0" placeholder="Year" autocomplete="off">
+  </div>
+</div>
+   
+	</form>
+</div>
+<!-- /////////////entradas//////////////// -->
+
+<!-- /////////////botones crear, modificar, leer y eliminar//////////////// -->
+
+<div class="d-flex justify-content-center">
+	<button onclick="agregarEmpleado();" class="btn btn-success" id="btn-create">Guardar</button>
+    <button onclick="borrarall();" class="btn btn-danger" id="btn-delete">Eliminar Todos Los Datos</button>
+	
+</div>
+
+<!-- /////////////botones crear, modificar, leer y eliminar//////////////// -->
+
+
+<!-- /////////////Tabla//////////////// -->
+<d class="container d-flex">
+	
+<table class="table table-striped">
+  <thead>
+    <tr>
+    
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellidos</th>
+      <th scope="col">Telefono</th>
+      <th scope="col">Email</th>
+       <th scope="col">Cedula</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Zodiaco</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+   
+      
+    </tr>
+  </thead>
+  <tbody id="tbDatos">
+    
+
+
+
+  </tbody>
+</d>
+
+
+
+
+
+<!-- /////////////Tabla//////////////// -->
+
+
+
+
+
+
+
+
 
 </body>
-
 </html>
-
-
